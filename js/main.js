@@ -3,28 +3,19 @@
 // Load header and footer components
 async function loadComponents() {
   try {
-    // Determine the path to components based on current page location
-    const isInPages = window.location.pathname.includes('/pages/');
-    const componentPath = isInPages ? '../components/' : 'components/';
+    // 常にルートからcomponents読み込み（全ページ共通）
+    const componentPath = '/components/';
     
-    // Load header
+    // Header読み込み
     const headerResponse = await fetch(componentPath + 'header.html');
-    const headerHTML = await headerResponse.text();
-    const headerContainer = document.querySelector('header');
-    if (headerContainer) {
-      headerContainer.innerHTML = headerHTML;
-      updateActiveNav();
-    }
+    document.querySelector('header').innerHTML = await headerResponse.text();
+    updateActiveNav();
     
-    // Load footer
-    const footerResponse = await fetch(componentPath + 'footer.html');
-    const footerHTML = await footerResponse.text();
-    const footerContainer = document.querySelector('footer');
-    if (footerContainer) {
-      footerContainer.innerHTML = footerHTML;
-    }
+    // Footer読み込み
+    document.querySelector('footer').innerHTML = await fetch(componentPath + 'footer.html').then(res => res.text());
+    
   } catch (error) {
-    console.error('Error loading components:', error);
+    console.error('ロード失敗:', error);
   }
 }
 
