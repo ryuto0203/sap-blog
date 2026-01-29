@@ -18,10 +18,10 @@ jobs:
       id: sitemap
       uses: cicirello/generate-sitemap@v1
       with:
-        base-url-path: 'https://sap-blog.netlify.app'
+        base-url-path: 'https://sap-blog.netlify.app/'
         
     - name: Commit sitemap changes
-      if: steps.sitemap.outputs.changed == 'true'
+      # if: steps.sitemap.outputs.changed == 'true' #ページが増えてきて、時間が経ったらコメントアウト解除する
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
