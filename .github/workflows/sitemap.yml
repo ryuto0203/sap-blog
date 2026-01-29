@@ -16,7 +16,7 @@ jobs:
       
     - name: Generate sitemap
       id: sitemap
-      uses: cicirello/generate-sitemap@v1.15.2
+      uses: cicirello/generate-sitemap@v1
       with:
         base-url-path: 'https://sap-blog.netlify.app'
         
