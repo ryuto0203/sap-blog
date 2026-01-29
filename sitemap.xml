@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://sap-blog.netlify.app/</loc>
-    <lastmod>2026-01-29</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://sap-blog.netlify.app/activate.html</loc>
-    <lastmod>2026-01-29</lastmod>
-    <priority>0.9</priority>
-  </url>
+<url>
+<loc>https://sap-blog.netlify.app/</loc>
+<lastmod>2026-01-29T16:31:30+09:00</lastmod>
+</url>
+<url>
+<loc>https://sap-blog.netlify.app/pages/activate.html</loc>
+<lastmod>2026-01-29T16:31:30+09:00</lastmod>
+</url>
+<url>
+<loc>https://sap-blog.netlify.app/pages/blog.html</loc>
+<lastmod>2026-01-29T16:31:30+09:00</lastmod>
+</url>
+<url>
+<loc>https://sap-blog.netlify.app/pages/cloud.html</loc>
+<lastmod>2026-01-29T16:31:30+09:00</lastmod>
+</url>
+<url>
+<loc>https://sap-blog.netlify.app/pages/faq.html</loc>
+<lastmod>2026-01-29T16:31:30+09:00</lastmod>
+</url>
+<url>
+<loc>https://sap-blog.netlify.app/pages/roadmap.html</loc>
+<lastmod>2026-01-29T16:31:30+09:00</lastmod>
+</url>
+<url>
+<loc>https://sap-blog.netlify.app/pages/what-is-sap.html</loc>
+<lastmod>2026-01-29T16:31:30+09:00</lastmod>
+</url>
 </urlset>
