@@ -9,6 +9,8 @@ on:
 jobs:
   sitemap:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - name: Checkout
@@ -24,7 +26,7 @@ jobs:
       # if: steps.sitemap.outputs.changed == 'true' #ページが増えてきて、時間が経ったらコメントアウト解除する
       run: |
         git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add sitemap.xml
-        git commit -m "🤖 Update sitemap.xml [skip ci]"
-        git push
+        git commit -m "🤖 Update sitemap.xml [skip ci]" || true
+        git push || true
