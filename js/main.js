@@ -1,6 +1,52 @@
 // SAP Knowledge Site - Main JavaScript
 
-document.addEventListener('DOMContentLoaded', function() {
+// Load header and footer components
+async function loadComponents() {
+  try {
+    // Determine the path to components based on current page location
+    const isInPages = window.location.pathname.includes('/pages/');
+    const componentPath = isInPages ? '../components/' : 'components/';
+    
+    // Load header
+    const headerResponse = await fetch(componentPath + 'header.html');
+    const headerHTML = await headerResponse.text();
+    const headerContainer = document.querySelector('header');
+    if (headerContainer) {
+      headerContainer.innerHTML = headerHTML;
+      updateActiveNav();
+    }
+    
+    // Load footer
+    const footerResponse = await fetch(componentPath + 'footer.html');
+    const footerHTML = await footerResponse.text();
+    const footerContainer = document.querySelector('footer');
+    if (footerContainer) {
+      footerContainer.innerHTML = footerHTML;
+    }
+  } catch (error) {
+    console.error('Error loading components:', error);
+  }
+}
+
+// Update active navigation link
+function updateActiveNav() {
+  const currentPath = window.location.pathname;
+  const currentFile = currentPath.split('/').pop() || 'index.html';
+  
+  document.querySelectorAll('nav a').forEach(link => {
+    const href = link.getAttribute('href');
+    const linkFile = href.split('/').pop();
+    
+    if (linkFile === currentFile || (currentFile === '' && href === 'index.html')) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+
+// Initialize page functionality
+function init() {
   // Mobile menu toggle
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
@@ -22,15 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
     });
-  });
-
-  // Active nav link highlighting
-  const currentPath = window.location.pathname;
-  document.querySelectorAll('nav a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '/' && href === 'index.html')) {
-      link.classList.add('active');
-    }
   });
 
   // Form submission handler
@@ -159,7 +196,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   console.log('SAP Knowledge Site initialized');
-});
+}
+
+// Load components and initialize
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    loadComponents().then(() => init());
+  });
+} else {
+  loadComponents().then(() => init());
+}
 
 // Utility function to get URL parameters
 function getUrlParameter(name) {
