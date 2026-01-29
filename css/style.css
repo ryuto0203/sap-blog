@@ -447,6 +447,24 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(0, 83, 156, 0.1);
 }
 
+/* draw.io スマホ対応 */
+.drawio-responsive {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* PC:横長 */
+  margin: 2rem 0;
+}
+
+.drawio-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   h1 {
@@ -478,6 +496,10 @@ select:focus {
 
   .btn-large {
     width: 100%;
+  }
+
+  .drawio-responsive {
+    padding-bottom: 75%; /* スマホ縦長 */
   }
 }
 
