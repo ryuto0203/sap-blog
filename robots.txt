@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# sitemap.xmlの場所
+Sitemap: https://sap-blog.netlify.app/sitemap.xml
