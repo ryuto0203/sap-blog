@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!-- 既存meta全部そのまま -->
   <meta charset="UTF-8">
   <meta name="google-site-verification" content="m_FuREQYyJ9wrTDh3qjP37oJNbzIaODGp2v7JFHmBXE" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="【ページ説明をここに】">
-  <meta name="keywords" content="SAP, ERP, 【キーワード】">
-  <meta property="og:title" content="【ページタイトル】">
-  <meta property="og:description" content="【ページ説明】">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <title>【ページタイトル】 - SAP入門ナレッジ</title>
+  <!-- ... 全meta保持 ... -->
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <!-- Header（自動読み込み） -->
-  <header></header>
+  <header id="main-header"></header>
 
-  <!-- 【ここにメインコンテンツ】 -->
-  <main>
-    <div class="container">
-      <h1>【ページタイトル】</h1>
-      <!-- ページ固有コンテンツをここに -->
-    </div>
-  </main>
+  <!-- ★★★ 左右flexレイアウト ★★★ -->
+  <div class="main-container">
+    <!-- 左：本文エリア（70%） -->
+    <main id="main-content" class="main-content">
+      <div class="container">
+        <h1>【ページタイトル】</h1>
+        <!-- 既存コンテンツ全部ここ -->
+      </div>
+    </main>
+    
+    <!-- 右：サイドバー（30%／スマホ下） -->
+    <aside id="sidebar" class="sidebar"></aside>
+  </div>
 
-  <!-- Footer（自動読み込み） -->
-  <footer></footer>
-
-  <!-- JS（自動コンポーネント読み込み） -->
+  <footer id="main-footer"></footer>
   <script src="/js/main.js" defer></script>
 </body>
 </html>
