@@ -16,9 +16,7 @@ async function loadComponents() {
 
     // sidebar読み込み
     const sidebarResponse = await fetch(componentPath + 'sidebar.html');
-    const sidebarHTML = await sidebarResponse.text();
-    const mainContainer = document.querySelector('.main-container') || document.body;
-    mainContainer.insertAdjacentHTML('beforeend', sidebarHTML);
+    document.getElementById('sidebar').innerHTML = await sidebarResponse.text();  // ← insertAdjacentHTML → getElementById
   } catch (error) {
     console.error('ロード失敗:', error);
   }
