@@ -13,7 +13,12 @@ async function loadComponents() {
     
     // Footer読み込み
     document.querySelector('footer').innerHTML = await fetch(componentPath + 'footer.html').then(res => res.text());
-    
+
+    // sidebar読み込み
+    const sidebarResponse = await fetch(componentPath + 'sidebar.html');
+    const sidebarHTML = await sidebarResponse.text();
+    const mainContainer = document.querySelector('.main-container') || document.body;
+    mainContainer.insertAdjacentHTML('beforeend', sidebarHTML);
   } catch (error) {
     console.error('ロード失敗:', error);
   }
